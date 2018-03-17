@@ -30,7 +30,6 @@ module.exports = function PartyMarkers(dispatch) {
         2: []       //blue
     };
     
-    let gameId = 0;
 	let partyMembers = [];
     let enabled = true;
     let markers = [];
@@ -42,11 +41,7 @@ module.exports = function PartyMarkers(dispatch) {
         }
         UpdateMarkers();
         let txt = (enabled) ? 'enabled' : 'disabled';
-        command.message('party-markers has been ' + txt);
-    });
-    
-    dispatch.hook('S_LOGIN', 9, (event) => {
-        gameId = event.gameId;
+        command.message('party-markers ' + txt);
     });
     
     dispatch.hook('S_LEAVE_PARTY', 1, (event) => {
@@ -55,26 +50,15 @@ module.exports = function PartyMarkers(dispatch) {
     });
     
     dispatch.hook('S_PARTY_MEMBER_LIST', 6, (event) => {
-        if (!enabled) return;
-        partyMembers = [];
-        
-        for (let i = 0; i < partyMembers.length; i++) {
-            if (event.members[i].gameId.equals(gameId) == false) {
-                if (!partyMembers.includes(event.members[i].gameId)) {
-                    partyMembers.push(event.members[i].gameId);
-                    break;
-                }
-            }
-        }
-        
-        UpdateMarkers();
+        partyMembers = event.members;
     })
     
     dispatch.hook('S_SPAWN_USER', 12, (event) => {
+        if (!enabled) return;
         if (partyMembers.length == 0) return; // you must be in a party
         
         let job = (event.templateId  - 10101) % 100
-
+        
         if (IsInYourParty(event.gameId)) {
             for(let markerColor in AllyTargets) {
                 if (AllyTargets[markerColor].includes(job)) {
