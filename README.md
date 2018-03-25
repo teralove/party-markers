@@ -1,5 +1,5 @@
 # party-markers
-Automatically mark specific friendly and enemy classes.
+Automatically place markers on friendly and enemy classes.
 
 ## Dependency
 - `Command` module
