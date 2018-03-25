@@ -1,5 +1,5 @@
 # party-markers
-Automatically mark players based on their class.
+Automatically mark specific friendly and enemy classes.
 
 ## Dependency
 - `Command` module
