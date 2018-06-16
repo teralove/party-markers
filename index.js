@@ -30,9 +30,10 @@ module.exports = function PartyMarkers(dispatch) {
         2: []       //blue
     };
     
-	let partyMembers = [];
+    let partyMembers = [];
     let enabled = true;
     let markers = [];
+    let updateDelayTimer;
     
     command.add('partymarkers', () => {
         enabled = !enabled;
@@ -44,6 +45,11 @@ module.exports = function PartyMarkers(dispatch) {
         command.message('party-markers ' + txt);
     });
     
+    dispatch.hook('S_LOGIN', 10, (event) => {
+        partyMembers = [];
+        markers = [];
+    });
+    
     dispatch.hook('S_LEAVE_PARTY', 1, (event) => {
         partyMembers = [];
         markers = [];
@@ -53,7 +59,7 @@ module.exports = function PartyMarkers(dispatch) {
         partyMembers = event.members;
     })
     
-    dispatch.hook('S_SPAWN_USER', 12, (event) => {
+    dispatch.hook('S_SPAWN_USER', 13, (event) => {
         if (!enabled) return;
         if (partyMembers.length == 0) return; // you must be in a party
         
@@ -84,7 +90,10 @@ module.exports = function PartyMarkers(dispatch) {
     });
     
     function UpdateMarkers() {
-        dispatch.toClient('S_PARTY_MARKER', 1, { markers: markers });
+        if (updateDelayTimer) clearTimeout(updateDelayTimer);
+        updateDelayTimer = setTimeout(() => {
+            dispatch.toClient('S_PARTY_MARKER', 1, { markers: markers });
+        }, 1000);
     }
     
     function MarkerExists(id) {
