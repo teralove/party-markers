@@ -45,7 +45,7 @@ module.exports = function PartyMarkers(dispatch) {
         command.message('party-markers ' + txt);
     });
     
-    dispatch.hook('S_LOGIN', 10, (event) => {
+    dispatch.hook('S_LOGIN', 13, (event) => {
         partyMembers = [];
         markers = [];
     });
