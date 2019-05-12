@@ -1,8 +1,5 @@
-const Command = require('command')
-
 module.exports = function PartyMarkers(dispatch) {
-    const command = Command(dispatch);
-    
+	const command = dispatch.command || dispatch.require.command;
     /*
     class index
     warrior = 0, lancer = 1, slayer = 2, berserker = 3,
@@ -55,7 +52,7 @@ module.exports = function PartyMarkers(dispatch) {
         markers = [];
     });
     
-    dispatch.hook('S_PARTY_MEMBER_LIST', 6, (event) => {
+    dispatch.hook('S_PARTY_MEMBER_LIST', 7, (event) => {
         partyMembers = event.members;
     })
     
@@ -98,7 +95,7 @@ module.exports = function PartyMarkers(dispatch) {
     
     function MarkerExists(id) {
         for (let i = 0; i < markers.length; i++) {
-            if (markers[i].target.equals(id)) {
+            if (markers[i].target == (id)) {
                 return true;
             }
         }
@@ -107,7 +104,7 @@ module.exports = function PartyMarkers(dispatch) {
     
     function IsInYourParty(id) {
         for (let i = 0; i < partyMembers.length; i++) {
-            if (partyMembers[i].gameId.equals(id)) {
+            if (partyMembers[i].gameId == (id)) {
                 return true;
             }
         }
