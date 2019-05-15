@@ -11,3 +11,7 @@ Automatically place markers on friendly and enemy classes.
 - Healers in your party = Blue
 - Healers not in your party = Red
 - Client-side, only you can see the markers.
+
+Made by teralove
+
+Upddated by TerableCoder

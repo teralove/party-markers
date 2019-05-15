@@ -1,4 +1,33 @@
+
 module.exports = function PartyMarkers(mod) {    
+	const command = dispatch.command || dispatch.require.command;
+    /*
+    class index
+    warrior = 0, lancer = 1, slayer = 2, berserker = 3,
+    sorcerer = 4, archer = 5, priest = 6, mystic = 7,
+    reaper = 8, gunner = 9, brawler = 10, ninja = 11,
+    valkyrie = 12
+    */
+
+    /*
+    marker colors
+    0 = red, 1 = yellow, 2 = blue
+    */
+
+    // Targets in your party
+    const AllyTargets = {
+        0: [],      //red
+        1: [1, 10], //yellow
+        2: [6, 7]   //blue
+    };
+    
+    // Targets NOT in your party
+    const EnemyTargets = {
+        0: [6, 7],  //red
+        1: [],      //yellow
+        2: []       //blue
+    };
+    
     let partyMembers = [];
     let markers = [];
     let updateDelayTimer;
