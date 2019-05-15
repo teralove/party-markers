@@ -1,0 +1,18 @@
+{
+    "files": {
+        "config.json": {
+            "overwrite": false,
+            "hash": "5ae9f677f1ffcca119a3dc2ea65e0fceed3107abe2d1eb00c852018e4aaa7bdf"
+        },
+        "index.js": "5786a66b9472500c8f39cdc5fb573301658c4b63e653297f0736b9ea31dec901",
+        "module.json": "85f0583f4bf29aaec814eff793ef092b6530b33e2562a95d9c3412731f04207d",
+		"settings_migrator.js": "4944da59191a418c6d334ee5e487ad6ad1b2b0427c038560f99e6fe545c0d998"
+    },
+    "defs": {
+        "S_LOGIN": 13,
+        "S_LEAVE_PARTY": 1,
+        "S_PARTY_MEMBER_LIST": 7,
+        "S_SPAWN_USER": 14,
+        "S_PARTY_MARKER": 1        
+    }
+}
