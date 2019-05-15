@@ -1,7 +1,7 @@
 # party-markers
 Automatically place markers on friendly and enemy classes.
 
-## Usage
+## Commands
 ### `partymarkers`
 - Toggle on/off
 - Default is on
