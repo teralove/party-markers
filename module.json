@@ -1,0 +1,15 @@
+{
+    "disableAutoUpdate": false,
+    "name": "party-markers",
+    "author": "teralove",
+    "description": "Mark players based on class",
+    "version": "5/14/2019",
+    "options": {
+        "niceName": "Party Markers",
+        "settingsVersion": 1,
+        "settingsFile": "config.json",
+        "settingsMigrator": "settings_migrator.js"
+    },
+    "servers": ["https://raw.githubusercontent.com/teralove/party-markers/master/"],
+    "supportUrl": "https://github.com/teralove/party-markers/issues"
+}
